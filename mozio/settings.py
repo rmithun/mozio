@@ -58,17 +58,29 @@ WSGI_APPLICATION = 'mozio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
+"""if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.contrib.gis.db.backends.postgis',
+            'NAME': 'mozio',
+            'USER': 'mozio_admin',
+            'HOST': 'localhost',
+            'PORT': 5432,
+            'PASSWORD': 'mozio'
+        }
+    }
+else:"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'mozio',
         'USER': 'mozio_admin',
-        'HOST': 'localhost',
+        'HOST': 'mozio.cyscy0cpjemo.ap-southeast-1.rds.amazonaws.com',
         'PORT': 5432,
-        'PASSWORD': 'mozio'
+        'PASSWORD': 'mozio1234'
     }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -114,7 +126,9 @@ STATICFILES_FINDERS = (
     #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 
 # DRF SETTINGS
