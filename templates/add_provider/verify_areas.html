@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div class="container">
+<div class="row" ng-controller="servicecontroller">
+      <form class="form-signin">
+        <label for="inputLat" class="sr-only">Lat</label>
+        <input type="text" ng-model="inputlat" id="inputLat" class="form-control" placeholder="Latitude" required autofocus>
+        <label for="inputLong" class="sr-only">Long</label>
+        <input type="text" ng-model="inputlong" id="inputLong" class="form-control" placeholder="Longitude" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="get_services()" type="submit">View services</button>
+       
+      </form>
+         <table ng-if="serviceareas" class="table table-bordered">
+        <tr>
+            <th>Provider
+            </th>
+
+            <th>Area
+            </th>
+
+            <th>Price
+            </th>
+            <th>Provider email
+            </th>
+            <th>Phone number
+            </th>
+        </tr>
+        <tr ng-repeat="area in serviceareas">
+        	 <td>{%verbatim%}{{area.provider.name}}{%endverbatim%}
+            </td>
+
+            <td>{%verbatim%}{{area.name}}{%endverbatim%}
+            </td>
+
+            <td>{%verbatim%}{{area.provider.email}}{%endverbatim%}
+            </td>
+            <td>{%verbatim%}{{area.provider.phone_number}}{%endverbatim%}
+            </td>
+            <td>{%verbatim%}{{area.provider.currency}}{{area.price}}{%endverbatim%}
+            </td>
+            
+        </tr>
+      </table>
+    </div> <!-- /container -->
+</div>
+{% endblock main_content %}

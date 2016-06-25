@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "mozio" >
+  <head>
+    <meta charset="utf-8">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Mozio - Add Service</title>
+    {% load static from staticfiles %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href='{% static  "css/bootstrap/bootstrap.min.css"%}'>
+    <link rel="stylesheet" href='{% static "css/devcss.css"%}' type="text/css" media="all" /> 
+  </head>
+<body>
+      <!-- csrf token-->{% csrf_token %}
+    <!-- Fixed navbar -->
+    <nav ng-controller="basecontroller" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Mozio</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a ng-hide="is_accessed()" href="{% url 'provider_signup' %}">Signup</a></li>
+            <li ng-show="is_accessed()"><a href="{% url 'define_service' %}">Add Area</a></li>
+            <li ng-show="is_accessed()"><a href="{% url 'view_areas' %}">View areas</a></li>
+            <li><a href="{% url 'verify' %}">Verify lat/long</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a ng-hide="is_accessed()" href="{% url 'login' %}">Login</a></li>
+            <li><a ng-show="is_accessed()" href ng-click="clearcookies()">Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+{% block main_content %}
+
+{% endblock main_content %}
+
+
+   <!-- js libs -->
+  <script src='{% static "js/jquery/jquery.min.js"%}'></script>   
+  <script src='{% static "js/bootstrap/bootstrap.min.js"%}'></script>
+  <script src='{% static "js/angular1.4.0/angular.min.js"%}'></script>
+  <script src='{% static "js/angular1.4.0/angular-animate.min.js"%}'></script>
+  <script src='{% static "js/angular1.4.0/angular-cookies.min.js"%}'></script>
+  <script src='{% static "js/angular1.4.0/angular-route.min.js"%}'></script>
+  <script src='{% static "js/app.js" %}'></script>
+   
+</body>
+</html>

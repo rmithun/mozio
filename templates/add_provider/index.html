@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div ng-controller="loginaccesscontroller" class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Identify Provider</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" ng-model="inputemail" id="inputEmail" class="form-control" placeholder="Email address" required>
+        <label for="inputPhone" class="sr-only">Phone number</label>
+        <input type="text" ng-model="inputphone" id="inputPhone" class="form-control" placeholder="Phone number" required>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="get_access()" type="submit">Identify provider</button>
+        <div class="checkbox">
+            <a href="{% url 'provider_signup' %}">Signup</a>
+        </div>
+      </form>
+
+   
+
+    </div> <!-- /container -->
+{% endblock main_content %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div class="container">
+<div  class="row">
+    &nbsp;
+</div>
+<div  class="row">
+    &nbsp;
+    </div>
+    <div  class="row">
+        &nbsp;
+    </div>
+<div class="row" ng-controller="areascontroller">
+
+     <button class="btn btn-lg btn-primary btn-block" ng-click="get_services()" type="submit">View all areas</button>
+     <p>&nbsp;</p>
+     <table ng-if="serviceareas" class="table table-bordered">
+        <tr>
+           
+            <th>Area
+            </th>
+
+            <th>Price
+            </th>
+             <th>Edit
+            </th>
+             <th>Delete
+            </th>
+        </tr>
+        <tr ng-repeat="area in serviceareas">
+
+            <td>{%verbatim%}{{area.name}}{%endverbatim%}
+            </td>
+
+            <td>{%verbatim%}{{area.provider.currency}}{{area.price}}{%endverbatim%}
+            </td>
+            <td><a class="btn btn-lg btn-primary btn-block" href="../load_editor/{%verbatim%}{{area.id}}{%endverbatim%}" type="submit">Edit</a>
+            </td>
+            <td><button class="btn btn-lg btn-danger btn-block" ng-click="delete_area(area.id)" type="submit">Delete</button>
+            </td>
+            
+        </tr>
+      </table>
+    </div> <!-- /container -->
+</div>
+{% endblock main_content %}

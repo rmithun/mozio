@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<div class="row" ng-controller="signupcontroller">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Provider Signup</h2>
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="name" ng-model="inputname" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" ng-model="inputemail" id="inputEmail" class="form-control" placeholder="Email address" required>
+        <label for="inputPhone" class="sr-only">Phone number</label>
+        <input type="text" ng-model="inputphone" id="inputPhone" class="form-control" placeholder="Phone number" required>
+        <label for="inputLanguage" class="sr-only">Language</label>
+        <input type="text" ng-model="inputlanguage" id="inputLanguage" class="form-control" placeholder="Language" required>
+        <label for="inputCurrency" class="sr-only">Currency</label>
+        <input type="text" ng-model="inputcurrency" id="inputCurrency" class="form-control" placeholder="Currency" required>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="signup()" type="submit">Sign in</button>
+        <div class="checkbox">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+      </form>
+    </div> <!-- /container -->
+{% endblock main_content %}
